@@ -1,9 +1,12 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
+
+	"github.com/vungocson998/gophercises/choose-your-own-adventure/cyoa"
 )
 
 func main() {
@@ -16,7 +19,9 @@ func main() {
 		panic(err)
 	}
 
-	_ = f
-	// d := json.NewDecoder(f)
-	// var story cyoa.Story
+	d := json.NewDecoder(f)
+	var story cyoa.Story
+	d.Decode(&story)
+
+	fmt.Printf("%+v\n", story)
 }
