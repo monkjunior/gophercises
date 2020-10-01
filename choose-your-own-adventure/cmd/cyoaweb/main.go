@@ -20,7 +20,7 @@ func main() {
 	}
 
 	d := json.NewDecoder(f)
-	var story cyoa.Story
+	var story cyoa.Story //We use map[string]Chapter to host JSON data
 	d.Decode(&story)
 
 	fmt.Printf("%+v\n", story)
